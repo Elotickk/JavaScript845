@@ -1,18 +1,5 @@
-///Desafio Simulador interactivo ////
+///Desafio Primer Proyecto////
 
-
-function saludoCliente(){
-    const nombreCliente = prompt("ingrese su nombre")
-    alert(`hola ${nombrecliente} bienvenido a Fravegas`)
-}
-
-    
-function muestraDeProducto(){
-    listaProductos.forEach(product => {
-        alert(`Le presentamos nuestros productos este producto es ${product.nombre} y su precio es $${product.precio} y tiene un stock de ${product.stock} unidades`)
-    })
-}
-    
 //Productos con sus propiedades////
 class Productos{
     constructor(nombre,precio,stock){
@@ -34,11 +21,24 @@ const listaProductos = [
     {nombre: "Playstation 5", precio: 150000,stock: 1},
 ]
 
+function saludoCliente(){
+    const nombreCliente = prompt("ingrese su nombre")
+    alert(`hola ${nombreCliente} bienvenido a Fravegas`)
+}
 
-const arrayPrecios = listaProductos.map(elemento => elemento.precio)
-console.log(arrayPrecios)
+    
+function muestraDeProducto(){
+    listaProductos.forEach(product => {
+        alert(`Le presentamos nuestros productos este producto es ${product.nombre} y su precio es $${product.precio} y tiene un stock de ${product.stock} unidades`)
+    })
+}
+    
+
+
+
+saludoCliente()
 muestraDeProducto()
-
+//Producto del Cliente que quiere llevar //
 let productoCliente = prompt('que producto quiere?(nombredelproducto)').toLowerCase()
 let encontrado = listaProductos.find(product => product.nombre.toLowerCase() == productoCliente)
 alert(`Ustedes eligio el producto ${encontrado.nombre} con el precio de ${encontrado.precio} y con un stock de ${encontrado.stock}`)
@@ -58,8 +58,8 @@ ingresarDatos()
 function ingresarDatos (){
     let productoPrecio = encontrado.precio
     console.log(productoPrecio)
+    let banco = prompt("Ingresa que tarjeta tiene(visa,mastercard,naranja,debito)")
     let meses = parseInt(prompt("Ingresa la cantidad de cuotas"))
-    let banco = prompt("Ingresa que tarjeta tiene(visa,mastercard,naranja,debito,contado)")
     let interes = calcInteres(banco)
     let precioConInteres = productoConInteres(productoPrecio,interes)
     let cuota = calcCuota(precioConInteres,meses)
