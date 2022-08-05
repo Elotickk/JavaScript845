@@ -69,6 +69,7 @@ function agregarCarrito(e){
         }
     }
     localStorage.setItem("products",JSON.stringify(carritoDeCompras))
+    renderizarElemento()
     Swal.fire({
         background: "#fff",
         position: 'top-end',
@@ -77,11 +78,11 @@ function agregarCarrito(e){
         showConfirmButton: false,
         timer: 1500
     })
-    renderizarElemento(boton)
     actualizarCarrito()
 }
 
 function renderizarElemento(){
+    productRows.innerHTML = "";
     carritoDeCompras.forEach(item => {
         let div = document.createElement('div');
         div.className = 'product-rows2'
