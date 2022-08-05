@@ -45,6 +45,7 @@ for(let boton of addToCart){
 }
 ////Carrito///
 let carritoDeCompras = [];
+console.log(carritoDeCompras)
 let contadorCarrito = document.getElementById('contadorCarrito');
 let total = document.getElementById('precioTotal');
 let productRows = document.getElementById('productRows');
@@ -79,38 +80,6 @@ function agregarCarrito(e){
     renderizarElemento(boton)
     actualizarCarrito()
 }
-///Productos en el Carrito/////
-
-// function agregarElemento(prodID,prodName,precio,imagen,cantidad){
-//     let productRow = document.createElement("div");
-//     let contenedorProductos = document.querySelector(".product-rows");
-//     let elemProducto = `
-//         <div class="product-row" id="${prodID}">
-//             <img class="product-cart-image card-img-top align-self-center" src="${imagen}" alt="Card image"/>
-//             <span class="name-product-cart">${prodName}</span>
-//             <span class="cart-price">${precio}</span>
-//             <span class="cantidad-product">${cantidad}</span>
-//             <button class="remove-btn">Borrar</button>
-//         </div>
-//     `
-//     productRow.innerHTML = elemProducto;
-//     contenedorProductos.append(productRow);
-//     let botonesBorrar = productRow.querySelectorAll(".remove-btn");
-//     for(let boton of botonesBorrar) {
-//         boton.addEventListener("click", borrarElemento);
-//     }
-//     actualizarCarrito()
-//     cantElementosCarrito();
-//     Swal.fire({
-//         background: "#fff",
-//         position: 'top-end',
-//         icon: 'success',
-//         title: 'Añadiste al carrito',
-//         showConfirmButton: false,
-//         timer: 1500
-//     })
-//     actualizarCarrito()
-// // }
 
 function renderizarElemento(){
     carritoDeCompras.forEach(item => {
