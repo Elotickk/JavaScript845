@@ -133,7 +133,7 @@ display: flex;
 align-items: center;
 }
 
-.cart-image {
+.product-cart-image {
 width: 10rem;
 margin: 1em;
 }
@@ -174,3 +174,11 @@ transform: translateY(5px);
     color: white;
 }
 
+
+.name-product-cart{
+    color: white;
+}
+
+.cantidad-product{
+    color: white;
+}

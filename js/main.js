@@ -10,7 +10,7 @@ function mostrarProductos(){
                         <h4 class="card-title">${item.nombre}</h4>
                         <p class="card-text">${item.descripcion}</p>
                         <button class="add-to-cart add-to-cart btn btn-success">Comprar</button>
-                        Precio<span class ="product-prize"> $${item.precio}</span>
+                        <p>Precio:$<span class ="product-prize">${item.precio}</span></p>
                     </div>
                     `
     contenedorProductos.appendChild(div)
@@ -43,10 +43,11 @@ const addToCart = document.getElementsByClassName("add-to-cart")
 for(let boton of addToCart){
     boton.addEventListener("click", agregarCarrito)
 }
-
-let carritoDeCompras = []
-let contadorCarrito = document.getElementById('contadorCarrito')
-let total = document.getElementById('precioTotal') 
+////Carrito///
+let carritoDeCompras = [];
+let contadorCarrito = document.getElementById('contadorCarrito');
+let total = document.getElementById('precioTotal');
+let productRows = document.getElementById('productRows');
 
 
 function agregarCarrito(e){
@@ -54,7 +55,7 @@ function agregarCarrito(e){
     let producto = boton.parentElement;
     let prodName = producto.querySelector("h4").innerText;
     let precio = parseFloat(producto.querySelector(".product-prize").innerText);
-    let contenedorProd = producto.parentElement
+    let contenedorProd = producto.parentElement;
     let prodID = contenedorProd.getAttribute("id")
     let imagen = contenedorProd.querySelector("img").src;
     let buscar = products.find(elemento => elemento.id == prodID)
@@ -64,7 +65,6 @@ function agregarCarrito(e){
             productoAgregado.cantidad += 1
         }else{
             carritoDeCompras.push(new Carrito( prodID,prodName,imagen,precio,1))
-            agregarElemento(prodID,prodName,precio,imagen)
         }
     }
     localStorage.setItem("products",JSON.stringify(carritoDeCompras))
@@ -76,25 +76,63 @@ function agregarCarrito(e){
         showConfirmButton: false,
         timer: 1500
     })
+    renderizarElemento(boton)
     actualizarCarrito()
-    console.log(carritoDeCompras)
 }
 ///Productos en el Carrito/////
 
-function agregarElemento(prodID,prodName,precio,imagen){
-    let productRow = document.createElement("div");
-    let contenedorProductos = document.querySelector(".product-rows");
-    let elemProducto = `
-        <div class="product-row" id="${prodID}">
-            <img class="product-cart-image card-img-top align-self-center" src="${imagen}" alt="Card image"/>
-            <span class="name-product-cart">${prodName}</span>
-            <span class="cart-price">${precio}</span>
-            <button class="remove-btn">Borrar</button>
-        </div>
-    `
-    productRow.innerHTML = elemProducto;
-    contenedorProductos.append(productRow);
-    let botonesBorrar = productRow.querySelectorAll(".remove-btn");
+// function agregarElemento(prodID,prodName,precio,imagen,cantidad){
+//     let productRow = document.createElement("div");
+//     let contenedorProductos = document.querySelector(".product-rows");
+//     let elemProducto = `
+//         <div class="product-row" id="${prodID}">
+//             <img class="product-cart-image card-img-top align-self-center" src="${imagen}" alt="Card image"/>
+//             <span class="name-product-cart">${prodName}</span>
+//             <span class="cart-price">${precio}</span>
+//             <span class="cantidad-product">${cantidad}</span>
+//             <button class="remove-btn">Borrar</button>
+//         </div>
+//     `
+//     productRow.innerHTML = elemProducto;
+//     contenedorProductos.append(productRow);
+//     let botonesBorrar = productRow.querySelectorAll(".remove-btn");
+//     for(let boton of botonesBorrar) {
+//         boton.addEventListener("click", borrarElemento);
+//     }
+//     actualizarCarrito()
+//     cantElementosCarrito();
+//     Swal.fire({
+//         background: "#fff",
+//         position: 'top-end',
+//         icon: 'success',
+//         title: 'Añadiste al carrito',
+//         showConfirmButton: false,
+//         timer: 1500
+//     })
+//     actualizarCarrito()
+// // }
+
+function renderizarElemento(){
+    carritoDeCompras.forEach(item => {
+        let div = document.createElement('div');
+        div.className = 'product-rows2'
+        div.innerHTML = `<div class="product-row" id="${item.id}">
+                            <img class="product-cart-image card-img-top align-self-center" src="${item.imagen}" alt="Card image"/>
+                            <span class="name-product-cart">${item.nombre}</span>
+                            <span class="cart-price">${item.precio}</span>
+                            <span class="cantidad-product">${item.cantidad}</span>
+                            <button class="remove-btn">Borrar</button>
+                        </div>
+                        `
+    productRows.appendChild(div)
+    })
+    borrarAviso()
+}
+
+
+
+function borrarAviso (){
+    let botonesBorrar = productRows.querySelectorAll(".remove-btn");
     for(let boton of botonesBorrar) {
         boton.addEventListener("click", borrarElemento);
     }
@@ -136,4 +174,5 @@ function  actualizarCarrito (){
     contadorCarrito.innerText = carritoDeCompras.length
     total.innerText = carritoDeCompras.reduce((acc, el)=> acc + el.precio, 0)
 }
+
 

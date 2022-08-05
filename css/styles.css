@@ -110,7 +110,7 @@ body {
   display: flex;
   align-items: center; }
 
-.cart-image {
+.product-cart-image {
   width: 10rem;
   margin: 1em; }
 
@@ -142,4 +142,10 @@ body {
 
 .card {
   background-color: black;
+  color: white; }
+
+.name-product-cart {
+  color: white; }
+
+.cantidad-product {
   color: white; }
