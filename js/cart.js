@@ -1,50 +1,7 @@
-let contenedorProductos = document.getElementById('contenedor-productos');
-
-function mostrarProductos(){
-    products.forEach(item => {
-    let div = document.createElement('div')
-    div.className = 'card col-md-3'
-    div.id = `${item.id}`
-    div.innerHTML = `<img class="product-image card-img-top align-self-center" src="${item.img}" alt="Card image">
-                    <div class="card-body">
-                        <h4 class="card-title">${item.nombre}</h4>
-                        <p class="card-text">${item.descripcion}</p>
-                        <button class="add-to-cart add-to-cart btn btn-success">Comprar</button>
-                        Precio<span class ="product-prize"> $${item.precio}</span>
-                    </div>
-                    `
-    contenedorProductos.appendChild(div)
-    })
-}
-
-mostrarProductos ()
-
+let carritoDeCompras = []
+console.log(carritoDeCompras)
 const carrito = document.querySelector("#cart");
 const cartModalOverlay = document.querySelector(".cart-modal-overlay");
-
-///MODAL/////
-////abrir al hacer click en el carrito/////
-carrito.addEventListener("click", ()=>{
-    if(cartModalOverlay.classList.contains("open")) {
-        cartModalOverlay.classList.remove("open");
-    } else {
-        cartModalOverlay.classList.add("open");
-    }
-})
-
-/////cerrar al hacer click en la x en carrito /////
-const closeBtn = document.querySelector("#close-btn");
-closeBtn.addEventListener("click", ()=>{
-    cartModalOverlay.classList.remove("open");
-})
-///Agregar Productos al Carrito cuando aprieto el boton /////
-const addToCart = document.getElementsByClassName("add-to-cart")
-
-for(let boton of addToCart){
-    boton.addEventListener("click", agregarCarrito)
-}
-
-let carritoDeCompras = []
 let contadorCarrito = document.getElementById('contadorCarrito')
 let total = document.getElementById('precioTotal') 
 
