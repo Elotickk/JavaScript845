@@ -69,7 +69,8 @@ function agregarCarrito(e){
         }
     }
     localStorage.setItem("products",JSON.stringify(carritoDeCompras))
-    renderizarElemento()
+    renderizarCarrito()
+    avisoBorrar()
     Swal.fire({
         background: "#fff",
         position: 'top-end',
@@ -81,7 +82,7 @@ function agregarCarrito(e){
     actualizarCarrito()
 }
 
-function renderizarElemento(){
+function renderizarCarrito(){
     productRows.innerHTML = "";
     carritoDeCompras.forEach(item => {
         let div = document.createElement('div');
@@ -96,17 +97,15 @@ function renderizarElemento(){
                         `
     productRows.appendChild(div)
     })
-    borrarAviso()
 }
 
 
 
-function borrarAviso (){
+function avisoBorrar (){
     let botonesBorrar = productRows.querySelectorAll(".remove-btn");
     for(let boton of botonesBorrar) {
         boton.addEventListener("click", borrarElemento);
     }
-    actualizarCarrito()
     cantElementosCarrito();
     Swal.fire({
         background: "#fff",
@@ -144,5 +143,3 @@ function  actualizarCarrito (){
     contadorCarrito.innerText = carritoDeCompras.length
     total.innerText = carritoDeCompras.reduce((acc, el)=> acc + el.precio, 0)
 }
-
-
