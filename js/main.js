@@ -2,6 +2,7 @@ let contenedorProductos = document.getElementById('contenedor-productos');
 
 function mostrarProductos(){
     products.forEach(item => {
+    if (item.stock != -1) {
     let div = document.createElement('div')
     div.className = 'card col-md-3'
     div.id = `${item.id}`
@@ -9,12 +10,21 @@ function mostrarProductos(){
                     <div class="card-body">
                         <h4 class="card-title">${item.nombre}</h4>
                         <p class="card-text">${item.descripcion}</p>
-                        <button class="add-to-cart add-to-cart btn btn-success">Comprar</button>
-                        <p>Precio:$<span class ="product-prize">${item.precio}</span></p>
-                    </div>
+                        <p class="card-text">Quedan ${item.stock} unidades</p>
+                        <input type=number id=input${item.id} placeholder="Ingrese la cantidad">
+                        <p class="card-text">Precio:$<span class ="product-prize">${item.precio}</span></p>
+                        <button class="add-to-cart add-to-cart btn btn-success" id="agregar${item.id}">Añadir al carrito</button>
+                        </div>
                     `
-    contenedorProductos.appendChild(div)
-    })
+                    if (item.stock <= 3) {
+                        div.innerHTML += `
+                        <p class="card-text">Ultimas Unidades!</p>
+                        `
+                    }
+                
+    contenedorProductos.append(div)
+    }
+})
 }
 
 mostrarProductos ()
@@ -92,7 +102,7 @@ function renderizarCarrito(){
                             <span class="name-product-cart">${item.nombre}</span>
                             <span class="cart-price">${item.precio}</span>
                             <span class="cantidad-product">${item.cantidad}</span>
-                            <button class="remove-btn">Borrar</button>
+                            <button onclick="eliminarDelCarrito(${item.id})" class="remove-btn">Borrar</button>
                         </div>
                         `
     productRows.appendChild(div)
@@ -143,3 +153,26 @@ function  actualizarCarrito (){
     contadorCarrito.innerText = carritoDeCompras.length
     total.innerText = carritoDeCompras.reduce((acc, el)=> acc + el.precio, 0)
 }
+
+const eliminarDelCarrito = (prodId) => {
+    const item = carritoDeCompras.find((prod) => prod.id === prodId)
+    const indice = carritoDeCompras.indexOf(item)
+    carritoDeCompras.splice(indice, 1)
+    actualizarCarrito()
+}
+
+const comprarCarrito = document.getElementById('comprarCarrito')
+
+comprarCarrito.addEventListener('click',()=>{
+    carritoDeCompras.length = 0
+    renderizarCarrito()
+    eliminarDelCarrito()
+    Swal.fire({
+        background: "#fff",
+        position: 'top-end',
+        icon: 'success',
+        title: 'Tu compra fue realiza con exito',
+        showConfirmButton: false,
+        timer: 1500
+    })
+})
