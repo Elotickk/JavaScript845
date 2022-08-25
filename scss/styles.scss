@@ -20,10 +20,6 @@ $color5: #C55A5A;
 
 
 
-.slick-prev{
-    
-}
-
 .row{
     width: 100%;
 }
@@ -43,7 +39,7 @@ $color5: #C55A5A;
 }
 
 //card//
-@property --rotate {
+--rotate {
     syntax: "<angle>";
     initial-value: 132deg;
     inherits: false;

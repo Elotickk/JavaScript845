@@ -14,7 +14,7 @@
   padding-right: calc(var(--bs-gutter-x) * .0);
   padding-left: calc(var(--bs-gutter-x) * .0); }
 
-@property --rotate {
+--rotate {
   syntax: "<angle>";
   initial-value: 132deg;
   inherits: false; }
