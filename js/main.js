@@ -1,48 +1,59 @@
 
 
-class Productos {
-    constructor (id,nombre,tipo,descripcion,precio,img,stock){
-        this.id = id,
-        this.nombre = nombre,
-        this.tipo = tipo,
-        this.descripcion = descripcion,
-        this.precio = precio,
-        this.img = img,
-        this.stock = stock
-    }
-    imprimir(objeto){
-        for(const clave in objeto){
-            alert(`${clave} : ${objeto[clave]}`)
-        }
-    }
-}
+$('.single-item').slick({
+    dots: true,
+    fade: true,
+    infinite: true,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 1800,
+    slidesToShow: 1,
+    adaptiveHeight: true
+});
+
+
+// class Productos {
+//     constructor (id,nombre,tipo,descripcion,precio,img,stock){
+//         this.id = id,
+//         this.nombre = nombre,
+//         this.tipo = tipo,
+//         this.descripcion = descripcion,
+//         this.precio = precio,
+//         this.img = img,
+//         this.stock = stock
+//     }
+//     imprimir(objeto){
+//         for(const clave in objeto){
+//             alert(`${clave} : ${objeto[clave]}`)
+//         }
+//     }
+// }
+
+
+// const products = [];
+
+// fetch('../stock.json')
+//     .then((respuesta) => respuesta.json())
+//     .then((data) => {
+//         data.productos.forEach(item =>{
+//             const product = new Productos(item.id,item.nombre,item.tipo,item.descripcion,item.precio,item.img,item.stock)
+//             products.push(product)
+//         })
+//     })
 
 
 
-const products = [];
+// console.log(products)
 
-fetch('../stock.json')
-    .then((respuesta) => respuesta.json())
-    .then((data) => {
-        data.productos.forEach(item =>{
-            const product = new Productos(item.id,item.nombre,item.tipo,item.descripcion,item.precio,item.img,item.stock)
-            products.push(product)
-        })
-    })
-
-
-
-console.log(products)
-
-class Carrito{
-    constructor(id,nombre,imagen,precio,cantidad){
-        this.id = id,
-        this.nombre = nombre,
-        this.imagen = imagen,
-        this.precio = precio,
-        this.cantidad = cantidad
-    }
-}
+// class Carrito{
+//     constructor(id,nombre,imagen,precio,cantidad){
+//         this.id = id,
+//         this.nombre = nombre,
+//         this.imagen = imagen,
+//         this.precio = precio,
+//         this.cantidad = cantidad
+//     }
+// }
 
 let contenedorProductos = document.getElementById('contenedor-productos');
 
@@ -50,12 +61,11 @@ function mostrarProductos(){
     products.forEach(item => {
     if (item.stock != -1) {
     let div = document.createElement('div')
-    div.className = 'card col-md-3'
+    div.className = 'card2 col-md-3'
     div.id = `${item.id}`
     div.innerHTML = `<img class="product-image card-img-top align-self-center" src="${item.img}" alt="Card image">
                     <div class="card-body">
                         <h4 class="card-title">${item.nombre}</h4>
-                        <p class="card-text">${item.descripcion}</p>
                         <p class="card-text">Quedan ${item.stock} unidades</p>
                         <input type=number id=input${item.id} placeholder="Ingrese la cantidad">
                         <p class="card-text">Precio:$<span class ="product-prize">${item.precio}</span></p>
