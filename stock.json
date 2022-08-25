@@ -1,0 +1,60 @@
+{
+    "productos": [
+        {
+            "id": "1",
+            "nombre": "Placa de Video MSI NVIDIA Geforce RTX 3090 Ventus 3X 24G OC",
+            "tipo":"placavideo",
+            "descripcion": "Es una tarjeta gráfica de desktop en la arquitectura Turing y el proceso de la tecnología 12 nm priméramente desarrollada para los jugadores. Posee una memoria de 4 GB de memoria GDDR5 en la frecuencia de 8 GHz y con la interfaz de 128 Bit posee un ancho de banda de 128.0 GB/s.",
+            "precio": 360000,
+            "img": "img/placa-de-video-msi-geforce-rtx-3090-ventus-3x-24g-450x450.png",
+            "stock": 2
+        },
+        {
+            "id": "2",
+            "nombre": "Placa De Video Msi Nvidia Gtx 1650 Super Gaming X 4g",
+            "tipo":"placavideo",
+            "descripcion": "Es una tarjeta gráfica de desktop en la arquitectura Turing y el proceso de la tecnología 12 nm priméramente desarrollada para los jugadores. Posee una memoria de 4 GB de memoria GDDR5 en la frecuencia de 8 GHz y con la interfaz de 128 Bit posee un ancho de banda de 128.0 GB/s.",
+            "precio": 70000,
+            "img": "img/1650super.png",
+            "stock": 2
+        },
+        {
+            "id": "3",
+            "nombre": "GeForce GTX 1050 Ti GAMING X 4G",
+            "tipo":"placavideo",
+            "descripcion": "Es una tarjeta gráfica de desktop en la arquitectura Pascal y el proceso de la tecnología 16 nm priméramente desarrollada para los jugadores. Posee una memoria de 4 GB de memoria GDDR5 en la frecuencia de 7 GB/s y con la interfaz de 128 Bit posee un ancho de banda de 112 GB/s.",
+            "precio": 50000,
+            "img": "img/1050ti.png",
+            "stock": 3
+        },
+        {
+            "id": "4",
+            "nombre": "Monitor Curvo de Gaming ROG Strix",
+            "tipo":"monitor",
+            "descripcion": "Monitor Curvo de Gaming ROG Strix XG27VQ: 27 pulgadas, Full HD (1920x1080), 144Hz, Extreme Low Motion Blur, Adaptive-Sync (FreeSync™)",
+            "precio": 90000,
+            "img": "./img/monitor.png",
+            "stock": 4
+        },
+        {
+            "id": "5",
+            "nombre": "Teclado HyperX Alloy CORE RGB Gaming",
+            "tipo":"teclado",
+            "descripcion": "Teclado HyperX Alloy CORE RGB Gaming",
+            "precio": 6000,
+            "img": "img/tecladohyperx.png",
+            "stock": 5
+        },
+        {
+            "id": "6",
+            "nombre": "G502 HERO - Logitech G",
+            "tipo":"mouse",
+            "descripcion": "G502 HERO dispone de un sensor óptico avanzado para máxima precisión de seguimiento, iluminación RGB personalizada, perfiles de juego personalizados, de 200 a 25.600 dpi y pesas reposicionables. 11 botones Totalmente programable4.",
+            "precio": 5000,
+            "img": "img/mouseG502hero.png",
+            "stock": 5
+        }
+        
+    ],
+    "totalProductos": 6
+}

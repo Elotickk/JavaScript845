@@ -1,3 +1,49 @@
+
+
+class Productos {
+    constructor (id,nombre,tipo,descripcion,precio,img,stock){
+        this.id = id,
+        this.nombre = nombre,
+        this.tipo = tipo,
+        this.descripcion = descripcion,
+        this.precio = precio,
+        this.img = img,
+        this.stock = stock
+    }
+    imprimir(objeto){
+        for(const clave in objeto){
+            alert(`${clave} : ${objeto[clave]}`)
+        }
+    }
+}
+
+
+
+const products = [];
+
+fetch('../stock.json')
+    .then((respuesta) => respuesta.json())
+    .then((data) => {
+        data.productos.forEach(item =>{
+            const product = new Productos(item.id,item.nombre,item.tipo,item.descripcion,item.precio,item.img,item.stock)
+            products.push(product)
+        })
+    })
+
+
+
+console.log(products)
+
+class Carrito{
+    constructor(id,nombre,imagen,precio,cantidad){
+        this.id = id,
+        this.nombre = nombre,
+        this.imagen = imagen,
+        this.precio = precio,
+        this.cantidad = cantidad
+    }
+}
+
 let contenedorProductos = document.getElementById('contenedor-productos');
 
 function mostrarProductos(){
@@ -27,7 +73,8 @@ function mostrarProductos(){
 })
 }
 
-mostrarProductos ()
+mostrarProductos ();
+
 
 const carrito = document.querySelector("#cart");
 const cartModalOverlay = document.querySelector(".cart-modal-overlay");
@@ -55,7 +102,6 @@ for(let boton of addToCart){
 }
 ////Carrito///
 let carritoDeCompras = [];
-console.log(carritoDeCompras)
 let contadorCarrito = document.getElementById('contadorCarrito');
 let total = document.getElementById('precioTotal');
 let productRows = document.getElementById('productRows');
@@ -63,6 +109,7 @@ let productRows = document.getElementById('productRows');
 
 function agregarCarrito(e){
     let boton = e.target;
+    console.log(boton)
     let producto = boton.parentElement;
     let prodName = producto.querySelector("h4").innerText;
     let precio = parseFloat(producto.querySelector(".product-prize").innerText);
