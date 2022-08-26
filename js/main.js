@@ -1,5 +1,4 @@
 
-
 $('.single-item').slick({
     dots: true,
     fade: true,
@@ -12,48 +11,49 @@ $('.single-item').slick({
 });
 
 
-// class Productos {
-//     constructor (id,nombre,tipo,descripcion,precio,img,stock){
-//         this.id = id,
-//         this.nombre = nombre,
-//         this.tipo = tipo,
-//         this.descripcion = descripcion,
-//         this.precio = precio,
-//         this.img = img,
-//         this.stock = stock
-//     }
-//     imprimir(objeto){
-//         for(const clave in objeto){
-//             alert(`${clave} : ${objeto[clave]}`)
-//         }
-//     }
-// }
+class Productos {
+    constructor (id,nombre,tipo,descripcion,precio,img,stock){
+        this.id = id,
+        this.nombre = nombre,
+        this.tipo = tipo,
+        this.descripcion = descripcion,
+        this.precio = precio,
+        this.img = img,
+        this.stock = stock
+    }
+    imprimir(objeto){
+        for(const clave in objeto){
+            alert(`${clave} : ${objeto[clave]}`)
+        }
+    }
+}
 
 
-// const products = [];
+const products = [];
 
-// fetch('../stock.json')
-//     .then((respuesta) => respuesta.json())
-//     .then((data) => {
-//         data.productos.forEach(item =>{
-//             const product = new Productos(item.id,item.nombre,item.tipo,item.descripcion,item.precio,item.img,item.stock)
-//             products.push(product)
-//         })
-//     })
+fetch('../stock.json')
+    .then((respuesta) => respuesta.json())
+    .then((data) => {
+        data.productos.forEach(item =>{
+            const product = new Productos(item.id,item.nombre,item.tipo,item.descripcion,item.precio,item.img,item.stock)
+            products.push(product)
+        })
+        mostrarProductos()
+    })
 
 
 
-// console.log(products)
+console.log(products)
 
-// class Carrito{
-//     constructor(id,nombre,imagen,precio,cantidad){
-//         this.id = id,
-//         this.nombre = nombre,
-//         this.imagen = imagen,
-//         this.precio = precio,
-//         this.cantidad = cantidad
-//     }
-// }
+class Carrito{
+    constructor(id,nombre,imagen,precio,cantidad){
+        this.id = id,
+        this.nombre = nombre,
+        this.imagen = imagen,
+        this.precio = precio,
+        this.cantidad = cantidad
+    }
+}
 
 let contenedorProductos = document.getElementById('contenedor-productos');
 
@@ -67,16 +67,15 @@ function mostrarProductos(){
                     <div class="card-body">
                         <h4 class="card-title">${item.nombre}</h4>
                         <p class="card-text">Quedan ${item.stock} unidades</p>
-                        <input type=number id=input${item.id} placeholder="Ingrese la cantidad">
-                        <p class="card-text">Precio:$<span class ="product-prize">${item.precio}</span></p>
-                        <button class="add-to-cart add-to-cart btn btn-success" id="agregar${item.id}">Añadir al carrito</button>
+                        <p class="card-text card-price">Precio:$<span class ="product-prize">${item.precio}</span></p>
+                        <button class="add-to-cart add-to-cart btn" id="agregar${item.id}">Añadir al carrito</button>
                         </div>
                     `
-                    if (item.stock <= 3) {
-                        div.innerHTML += `
-                        <p class="card-text">Ultimas Unidades!</p>
-                        `
-                    }
+                    // if (item.stock <= 3) {
+                    //     div.innerHTML += `
+                    //     <p class="card-text">Ultimas Unidades!</p>
+                    //     `
+                    // }
                 
     contenedorProductos.append(div)
     }

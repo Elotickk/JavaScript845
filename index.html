@@ -21,48 +21,50 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div class="cart-modal-overlay">
-        <div class="cart-modal">
-            <i id="close-btn" class="fas fa-times"></i>
-            <h1 class="cart-is-empty">El carrito esta vacio</h1>
-            <div class="product-rows" id="productRows">
-            </div>
-            <div class="total">
-                <h1 class="cart-total">TOTAL</h1>
-                <span class="total-price" id="precioTotal">$0</span>
-                <button class="purchase-btn" id="comprarCarrito">COMPRAR</button>
+    <header class="header">
+        <div class="cart-modal-overlay">
+            <div class="cart-modal">
+                <i id="close-btn" class="fas fa-times"></i>
+                <h1 class="cart-is-empty">El carrito esta vacio</h1>
+                <div class="product-rows" id="productRows">
+                </div>
+                <div class="total">
+                    <h1 class="cart-total">TOTAL</h1>
+                    <span class="total-price" id="precioTotal">$0</span>
+                    <button class="purchase-btn" id="comprarCarrito">COMPRAR</button>
+                </div>
             </div>
         </div>
-    </div>
-    <nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="#">Gaming CTA</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#inicio">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#productsenventa">Productos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Nosotros</a>
-            </li>
-        </ul>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        <a class="cart-btn">
-            <i id="cart" class="fa-solid fa-cart-shopping"></i>
-            <span class="cart-quantity" id="contadorCarrito">0</span>
-        </a>
-    </div>
-    </div>
-</nav>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Gaming CTA</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#productsenventa">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Nosotros</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <a class="cart-btn">
+                        <i id="cart" class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-quantity" id="contadorCarrito">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
     <main class="jumbo jumbotron" id="inicio">
         <ul class="single-item">
             <li>
@@ -126,7 +128,6 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="./slick-1.8.1/slick/slick.min.js"></script>
-    <script src="./js/stock.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

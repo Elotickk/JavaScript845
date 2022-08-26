@@ -20,171 +20,12 @@ $color5: #C55A5A;
 
 
 
-.row{
-    width: 100%;
-}
-
-.slick-next{
-    right: 0px;
-    font-size: 0px;
-}
-
-.slick-next:before{
-    font-size: 0px;
-}
-
-.container-fluid{
-    padding-right: calc(var(--bs-gutter-x) * .0);
-    padding-left: calc(var(--bs-gutter-x) * .0);
-}
-
-//card//
---rotate {
-    syntax: "<angle>";
-    initial-value: 132deg;
-    inherits: false;
-}
-
-:root {
-    --card-height: 51vh;
-    --card-width: calc(var(--card-height) / 1.5); }
-
-
-// .card-magic {
-//     min-height: 100vh;
-//     background: #212534;
-//     display: flex;
-//     align-items: center;
-//     flex-direction: column;
-//     padding-top: 2rem;
-//     padding-bottom: 2rem;
-//     box-sizing: border-box;
-// }
-
-*, ::after, ::before{
-    box-sizing: content-box;
-}
-
-.row{
-    justify-content: center;
-}
-
-.card2 {
-    background: black;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-sizing: border-box;
-    // background: #191c29;
-    width: var(--card-width);
-    height: var(--card-height);
-    margin: 20px;
-    padding: 3px;
-    position: relative;
-    border-radius: 6px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    font-size: 1.5em;
-    color: rgba(20, 20, 20, 0);
-    cursor: pointer;
-    font-family: $font4;
-}
-
-.card2:hover {
-    color: rgb(82, 190, 240);
-    transition: color 1s;
-}
-
-.card2:hover:before, .card:hover:after {
-    opacity: 0;
-    transition: all 300ms ;
-}
-
-.card2::before {
-    content: "";
-    width: 103%;
-    height: 101.8%;
-    border-radius: 8px;
-    background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
-    position: absolute;
-    z-index: -1;
-    top: -0.8%;
-    left: -1.5%;
-    animation: spin 2.5s linear infinite;
-    opacity: 1;
-    transition: all 800ms ;
-}
-
-.card2::after {
-    position: absolute;
-    content: "";
-    top: calc(var(--card-height) / 6);
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale(0.8);
-    filter: blur(calc(var(--card-height) / 6));
-    background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
-    opacity: 1;
-    transition: opacity 1.5s;
-    animation: spin 2.5s linear infinite;
-}
-
-
-@keyframes spin {
-    0% {
-    --rotate: 0deg;
-    }
-    100% {
-    --rotate: 360deg;
-    }
-}
-
-  ////card magic prueba/
-
-.slick-slide{
-    max-height: 1050px;
-}
-
-.ol, ul {
-    padding-left: 0;
-}
-
-.slick-dots li button:before{
-    color: #fff;
-    font-size: 16px;
-}
-
-.slick-dots {
-    bottom: 50px;
-}
-
-
 body {
     padding: 0;
     margin: 0;
     background-color: black;
 }
 
-.jumbotron{
-    max-width: 100%;
-}
-
-.product-image{
-    width: 18rem;
-    height: 15rem;
-}
 
 .navbar-nav .nav-link.active{
     color: azure;
@@ -205,6 +46,13 @@ body {
 .bg-dark{
     background-color: transparent;
 }
+
+header{
+    position: sticky;
+}
+
+
+
 
 ///Carrito///
 .fa-cart-shopping {
@@ -357,6 +205,191 @@ transform: translateY(5px);
 .cantidad-product{
     color: white;
 }
+
+
+/// JumboSlide////
+.slick-slide{
+    max-height: 1050px;
+}
+
+.ol, ul {
+    padding-left: 0;
+}
+
+.slick-dots li button:before{
+    color: #fff;
+    font-size: 16px;
+}
+
+.slick-dots {
+    bottom: 50px;
+}
+
+.jumbotron{
+    max-width: 100%;
+}
+
+.row{
+    width: 100%;
+}
+
+.slick-next{
+    right: 0px;
+    font-size: 0px;
+}
+
+.slick-next:before{
+    font-size: 0px;
+}
+
+.container-fluid{
+    padding-right: calc(var(--bs-gutter-x) * .0);
+    padding-left: calc(var(--bs-gutter-x) * .0);
+}
+
+////JumboSlideEnd////
+
+
+.product-image{
+    width: 18rem;
+    height: 15rem;
+}
+
+//card//
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+
+:root {
+    --card-height: 51vh;
+    --card-width: calc(var(--card-height) / 1.5); }
+
+
+// .card-magic {
+//     min-height: 100vh;
+//     background: #212534;
+//     display: flex;
+//     align-items: center;
+//     flex-direction: column;
+//     padding-top: 2rem;
+//     padding-bottom: 2rem;
+//     box-sizing: border-box;
+// }
+
+*, ::after, ::before{
+    box-sizing: content-box;
+}
+
+.row{
+    justify-content: center;
+}
+
+.btn{
+    color: #000;
+}
+
+.card-title{
+    margin-top: 10px;
+}
+
+.card2 {
+    background: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    // background: #191c29;
+    width: var(--card-width);
+    margin: 20px;
+    padding: 3px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    font-family: $font4;
+}
+
+.card-title,.card-price{
+    color: $color2;
+    
+}
+
+.card2:hover {
+    color: rgb(255, 255, 255);
+    transition: color 1s;
+    .btn{
+        color: #fff;
+        border-color: #fff;
+    }
+}
+
+.card2:hover:before, .card:hover:after {
+    opacity: 0;
+    transition: all 300ms ;
+}
+
+.card2::before {
+    content: "";
+    width: 103%;
+    height: 101.8%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -0.8%;
+    left: -1.5%;
+    animation: spin 2.5s linear infinite;
+    animation-name: spin;
+    opacity: 1;
+}
+
+.card2::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+    transition: opacity 1.5s;
+    animation-name: spin;
+    animation: spin 2.5s linear infinite;
+}
+
+
+@keyframes spin {
+    0% {
+    --rotate: 0deg;
+    }
+    100% {
+    --rotate: 360deg;
+    }
+}
+
+
+
+  ////card magic prueba/
+
+
 
 //Formulario//
 
